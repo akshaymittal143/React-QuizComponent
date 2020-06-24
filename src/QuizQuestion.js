@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import QuizQuestionButton from "./QuizQuestionButton.js";
 
-export default class QuizQuestion extends Component {
+class QuizQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +11,10 @@ export default class QuizQuestion extends Component {
   }
   handleClick(buttonText) {
     if (buttonText === this.props.quiz_question.answer) {
+      this.setState({ incorrectAnswer: false });
       this.props.showNextQuestionHandler();
-      this.setState((state) => {
-        return { incorrectAnswer: !state.incorrectAnswer };
-      });
+    } else {
+      this.setState({ incorrectAnswer: true });
     }
   }
 
@@ -50,3 +50,5 @@ export default class QuizQuestion extends Component {
 QuizQuestion.propsTypes = {
   quiz_question: PropTypes.object.isRequired,
 };
+
+export default QuizQuestion;
