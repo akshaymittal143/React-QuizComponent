@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-class QuizEnd extends React.Component {
+class QuizEnd extends Component {
   render() {
     return (
       <div>
